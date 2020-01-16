@@ -27,27 +27,40 @@ class map():
 
     def _build_path(self):
 
-        lastmove = ""
+        #lastmove = ""
         counter = 0
 
-        while counter < 20:
+        while counter < self._col :
             move = random.choice(["l","t","r","b"])
 
-            if lastmove != move:
-                if move == "l":
-                    self._paint_path([self._end_position[0], self._end_position[0]-1])
-                    
-                if move == "t":
-                    self._paint_path([self._end_position[0]+1, self._end_position[0]+1])
-                    
-                if move == "r":
-                    self._paint_path([self._end_position[0]-1, self._end_position[0]])
-                    
-                if move == "b":
-                    self._paint_path([self._end_position[0]-1, self._end_position[0]-1])
+            if move == "l":
+                self._paint_path([self._end_position[0]-1, self._end_position[0]])
+                
+            if move == "t":
+                self._paint_path([self._end_position[0]+1, self._end_position[0]+1])
+                
+            if move == "r":
+                self._paint_path([self._end_position[0], self._end_position[0]+1])
+                
+            if move == "b":
+                self._paint_path([self._end_position[0]-1, self._end_position[0]-1])
 
-                lastmove = move
-                counter = counter + 1
+            counter = counter + 1
+            # if lastmove != move:
+            #     if move == "l":
+            #         self._paint_path([self._end_position[0], self._end_position[0]-1])
+                    
+            #     if move == "t":
+            #         self._paint_path([self._end_position[0]+1, self._end_position[0]+1])
+                    
+            #     if move == "r":
+            #         self._paint_path([self._end_position[0]-1, self._end_position[0]])
+                    
+            #     if move == "b":
+            #         self._paint_path([self._end_position[0]-1, self._end_position[0]-1])
+
+            #     lastmove = move
+            #     counter = counter + 1
     
     def _paint_path(self, pos):
 
@@ -56,6 +69,8 @@ class map():
         
         self._generated_map[pos[0]][pos[1]][5] = 1
         self._end_position = [pos[0],pos[1]]
+        print("new position")
+        print(self._end_position)
         return True
 
     def _mark_end_position(self):
@@ -122,6 +137,6 @@ class map():
         x = random.choice(range(0, int(self._col / 2)))
         y = random.choice(range(0, int(self._row / 2)))
         self._generated_map[y][x][6] = 1
-        self._start_position = [x, y]
-        self._end_position = [x,y]
+        self._start_position = [y, x]
+        self._end_position = [y,x]
 
