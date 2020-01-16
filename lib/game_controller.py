@@ -4,7 +4,7 @@ import sys
 class gamecontroller():
 
     def __init__(self, map):
-        self._map = map 
+        self._map = map.get_map() 
         self._pos = map.get_start_position()
 
     def handle_input(self, input):
@@ -34,15 +34,20 @@ class gamecontroller():
 
 
     def _up(self):
-        pass
+        self._move([self._pos[0]+1,self._pos[0]+1])
 
     def _down(self):
-        pass
+        self._move([self._pos[0]-1,self._pos[0]-1])
 
     def _left(self):
-        pass
+        self._move([self._pos[0],self._pos[0]-1])
 
     def _right(self):
+        self._move([self._pos[0]-1,self._pos[0]])
+
+    def _move(self, pos):
+        el_p = self._map[pos[0]][pos[1]]
+        print(el_p)
         pass
 
     def _validate_user_input(self, input):
