@@ -11,49 +11,55 @@ class gamecontroller():
     def handle_input(self, input):
         if not self._validate_user_input(input):
             print("pain >> sorry. unknown command. type h for more")
-
+            return [0,0]
         if input == input_types.inputtypes.UP.value:
-            self._up()
+            return self._up()
 
         if input == input_types.inputtypes.DOWN.value:
-            self._down()
+            return self._down()
 
         if input == input_types.inputtypes.LEFT.value:
-            self._left()
+            return self._left()
 
         if input == input_types.inputtypes.RIGHT.value:
-            self._right()
+            return self._right()
 
         if input == input_types.inputtypes.INFO.value:
             self._info()
+            return [0,0]
 
         if input == input_types.inputtypes.HELP.value:
             self._help()
+            return [0,0]
 
         if input == input_types.inputtypes.EXIT.value:
             self._exit()
 
-
     def _up(self):
-        self._move([self._pos[0]+1,self._pos[1]+1])
+        return self._move([self._pos[0]+1,self._pos[1]])
 
     def _down(self):
-        self._move([self._pos[0]-1,self._pos[1]-1])
+        return self._move([self._pos[0]-1,self._pos[1]])
 
     def _left(self):
-        self._move([self._pos[0],self._pos[1]-1])
+        return self._move([self._pos[0],self._pos[1]-1])
 
     def _right(self):
-        self._move([self._pos[0],self._pos[1]+1])
+        return self._move([self._pos[0],self._pos[1]+1])
 
     def _move(self, pos):
         print(self._map.get_map()[pos[0]][pos[1]])
-        if self._map.get_map()[pos[0]][pos[1]][5] == 0:
-            self._animater.animate_multiline([animation_types.animationtypes.THE_WALL.value, animation_types.animationtypes.THE_WALL_TWO.value], 0.25, 4)
-            return
+        # if self._map.get_map()[pos[0]][pos[1]][5] == 0:
+        #     self._animater.animate_multiline([animation_types.animationtypes.THE_WALL.value, animation_types.animationtypes.THE_WALL_TWO.value], 0.25, 4)
+        #     return [0,0]
+
+        if self._map.get_map()[pos[0]][pos[1]][8] == 1:
+            # self._animater.animate_multiline([animation_types.animationtypes.THE_WALL.value, animation_types.animationtypes.THE_WALL_TWO.value], 0.25, 4)
+            return [1,0]
+
         self._pos = [pos[0],pos[1]]
         print(f"pain >> your new position is {self._pos}")
-        
+        return [0,1]
 
     def _validate_user_input(self, input):
         return input in [item.value for item in input_types.inputtypes]
