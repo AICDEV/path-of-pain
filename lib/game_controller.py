@@ -1,4 +1,4 @@
-from lib import input_types
+from lib import input_types, animator, animation_types
 import sys
 
 class gamecontroller():
@@ -6,10 +6,11 @@ class gamecontroller():
     def __init__(self, map):
         self._map = map
         self._pos = map.get_start_position()
+        self._animater = animator.animator()
 
     def handle_input(self, input):
         if not self._validate_user_input(input):
-            print("pain >> sorry. unknown command. type help for more")
+            print("pain >> sorry. unknown command. type h for more")
 
         if input == input_types.inputtypes.UP.value:
             self._up()
@@ -48,7 +49,7 @@ class gamecontroller():
     def _move(self, pos):
         print(self._map.get_map()[pos[0]][pos[1]])
         if self._map.get_map()[pos[0]][pos[1]][5] == 0:
-            print("can't move")
+            self._animater.animate_multiline([animation_types.animationtypes.THE_WALL.value, animation_types.animationtypes.THE_WALL_TWO.value], 0.25, 4)
             return
         self._pos = [pos[0],pos[1]]
         print(f"pain >> your new position is {self._pos}")
@@ -68,8 +69,8 @@ class gamecontroller():
         print("pain >> w (move up)")
         print("pain >> s (move down)")
         print("pain >> d (move right)")
-        print("pain >> help")
-        print("pain >> info")
+        print("pain >> h (help)")
+        print("pain >> i (info)")
         print("pain >> exit")
 
     def _exit(self):

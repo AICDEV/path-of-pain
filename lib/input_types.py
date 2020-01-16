@@ -5,6 +5,6 @@ class inputtypes(Enum):
     LEFT = "a"
     RIGHT = "d"
     DOWN = "s"
-    INFO = "info"
-    HELP = "help"
+    INFO = "i"
+    HELP = "h"
     EXIT = "exit"
