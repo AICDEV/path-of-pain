@@ -1,5 +1,6 @@
 # 0,0,1,1,"tlc",
 # left, top, right, bottom, name, has_entry, is_magic, is_start, is_finish
+# 0     1      2        3   4       5           6       7           8
 import random
 
 class map():
@@ -27,6 +28,7 @@ class map():
 
     def _build_path(self):
 
+        print("start at" + str(self._start_position))
         #lastmove = ""
         counter = 0
 
@@ -34,16 +36,16 @@ class map():
             move = random.choice(["l","t","r","b"])
 
             if move == "l":
-                self._paint_path([self._end_position[0]-1, self._end_position[0]])
+                self._paint_path([self._start_position[0]-1, self._start_position[1]])
                 
             if move == "t":
-                self._paint_path([self._end_position[0]+1, self._end_position[0]+1])
+                self._paint_path([self._start_position[0]+1, self._start_position[1]+1])
                 
             if move == "r":
-                self._paint_path([self._end_position[0], self._end_position[0]+1])
+                self._paint_path([self._start_position[0], self._start_position[1]+1])
                 
             if move == "b":
-                self._paint_path([self._end_position[0]-1, self._end_position[0]-1])
+                self._paint_path([self._start_position[0]-1, self._start_position[1]-1])
 
             counter = counter + 1
             # if lastmove != move:
@@ -68,13 +70,13 @@ class map():
             return False
         
         self._generated_map[pos[0]][pos[1]][5] = 1
-        self._end_position = [pos[0],pos[1]]
+        self._start_position = [pos[0],pos[1]]
         print("new position")
-        print(self._end_position)
+        print(self._start_position)
         return True
 
     def _mark_end_position(self):
-        self._generated_map[self._end_position[0]][self._end_position[1]][7] = 1
+        self._generated_map[self._end_position[0]][self._end_position[1]][8] = 1
 
     def _build_map(self):
         for r in range(0, self._row):
@@ -136,7 +138,7 @@ class map():
     def _generate_start_position(self):
         x = random.choice(range(0, int(self._col / 2)))
         y = random.choice(range(0, int(self._row / 2)))
-        self._generated_map[y][x][6] = 1
+        self._generated_map[y][x][7] = 1
         self._start_position = [y, x]
         self._end_position = [y,x]
 

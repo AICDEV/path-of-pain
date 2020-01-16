@@ -46,10 +46,13 @@ class gamecontroller():
         self._move([self._pos[0],self._pos[1]+1])
 
     def _move(self, pos):
-        #el_p = self._map.get_map()[pos[0]][pos[1]]
+        print(self._map.get_map()[pos[0]][pos[1]])
+        if self._map.get_map()[pos[0]][pos[1]][5] == 0:
+            print("can't move")
+            return
         self._pos = [pos[0],pos[1]]
         print(f"pain >> your new position is {self._pos}")
-        pass
+        
 
     def _validate_user_input(self, input):
         return input in [item.value for item in input_types.inputtypes]
