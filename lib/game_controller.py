@@ -49,12 +49,11 @@ class gamecontroller():
 
     def _move(self, pos):
         print(self._map.get_map()[pos[0]][pos[1]])
-        # if self._map.get_map()[pos[0]][pos[1]][5] == 0:
-        #     self._animater.animate_multiline([animation_types.animationtypes.THE_WALL.value, animation_types.animationtypes.THE_WALL_TWO.value], 0.25, 4)
-        #     return [0,0]
+        if self._map.get_map()[pos[0]][pos[1]][5] == 0:
+            self._animater.animate_multiline([animation_types.animationtypes.THE_WALL.value, animation_types.animationtypes.THE_WALL_TWO.value], 0.25, 4)
+            return [0,0]
 
         if self._map.get_map()[pos[0]][pos[1]][8] == 1:
-            # self._animater.animate_multiline([animation_types.animationtypes.THE_WALL.value, animation_types.animationtypes.THE_WALL_TWO.value], 0.25, 4)
             return [1,0]
 
         self._pos = [pos[0],pos[1]]

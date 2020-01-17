@@ -9,3 +9,5 @@ class animationtypes(Enum):
     PATH_BANNER = "path_banner"
     TRAP = "trap"
     TRAP_UP = "trap_up"
+    OUTRO_ONE = "outro_one"
+    OUTRO_TWO = "outro_two"

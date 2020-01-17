@@ -1,6 +1,3 @@
-# 0,0,1,1,"tlc",
-# left, top, right, bottom, name, has_entry, is_magic, is_start, is_finish
-# 0     1      2        3   4       5           6       7           8
 import random
 
 class map():
@@ -28,11 +25,9 @@ class map():
 
     def _build_path(self):
 
-        #lastmove = ""
         counter = 0
 
         while counter < 10:
-        # while counter < self._col :
             move = random.choice(["l","t","r","b"])
 
             if move == "l":
@@ -48,21 +43,6 @@ class map():
                 self._paint_path([self._start_position[0]-1, self._start_position[1]-1])
 
             counter = counter + 1
-            # if lastmove != move:
-            #     if move == "l":
-            #         self._paint_path([self._end_position[0], self._end_position[0]-1])
-                    
-            #     if move == "t":
-            #         self._paint_path([self._end_position[0]+1, self._end_position[0]+1])
-                    
-            #     if move == "r":
-            #         self._paint_path([self._end_position[0]-1, self._end_position[0]])
-                    
-            #     if move == "b":
-            #         self._paint_path([self._end_position[0]-1, self._end_position[0]-1])
-
-            #     lastmove = move
-            #     counter = counter + 1
     
     def _paint_path(self, pos):
 
