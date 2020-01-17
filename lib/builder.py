@@ -51,7 +51,6 @@ class map():
         
         self._generated_map[pos[0]][pos[1]][5] = 1
         self._start_position = [pos[0],pos[1]]
-        print(self._start_position)
         return True
 
     def _mark_end_position(self):
