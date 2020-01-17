@@ -27,7 +27,7 @@ class map():
 
         counter = 0
 
-        while counter < 10:
+        while counter < 20:
             move = random.choice(["l","t","r","b"])
 
             if move == "l":
