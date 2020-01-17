@@ -85,33 +85,3 @@ outro_two = [
     "\t POWERED BY AICDEV.\n \n \tINSPIRED BY HACKER HARRY \n\n",    
     "`\"`!`'`!§?\"?'`\"`!`'`!§?\"?'`\"`!`'`!§?\"?' \n"
 ]
-
-#       Y O U   A R E   A W E S O M E
-
-#               \o/
-#                |
-#               / \
-
-#       P A T H  O F  P A I N
-
-#       POWERED BY AICDEV. THANKS FOR PLAYING
-            
-# `"`!`'`!§?"?'`"`!`'`!§?"?'`"`!`'`!§?"?'
-
-
-
-
-
-# `"`!`'`!§?"?'`"`!`'`!§?"?'`"`!`'`!§?"?'
-
-#       Y O U   A R E   A W E S O M E !!!
-
-#                o
-#               /|\
-#               / \
-
-#       P A T H  O F  P A I N
-
-#       POWERED BY AICDEV. THANKS FOR PLAYING
-            
-# `"`!`'`!§?"?'`"`!`'`!§?"?'`"`!`'`!§?"?'
