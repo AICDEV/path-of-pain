@@ -9,14 +9,9 @@ def intro():
     animator.animator().animate_singleline(animation_types.animationtypes.PATH_BANNER.value, 1.0, 1)
     play_obj.stop()
 
-def outro():
-    pass
-
 def game_loop(controller):
     try:
-        u_input = input("pain >> ")
-        r = controller.handle_input(u_input)
-        if r[0] == 1:
+        if controller.handle_input(input("pain >> "))[0] == 1:
             animator.animator().animate_multiline([animation_types.animationtypes.OUTRO_ONE.value, animation_types.animationtypes.OUTRO_TWO.value], 1.0, 8)
             sys.exit()
         else:
@@ -31,7 +26,6 @@ def main():
     intro()
     print("pain >> WELCOME TO PATH OF PAIN UNBELIEVING CREATOR \press 'h' for help" )
     game_loop(game_controller.gamecontroller(builder.map(256)))
-
 
 main()
 
